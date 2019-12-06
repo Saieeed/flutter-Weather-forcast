@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:clima/utilities/constants.dart';
-
+import 'package:clima/services/weather.dart';
 class LocationScreen extends StatefulWidget {
   LocationScreen({this.locationWeather});
   final locationWeather ;
@@ -9,6 +9,7 @@ class LocationScreen extends StatefulWidget {
 }
 
 class _LocationScreenState extends State<LocationScreen> {
+    WeatherModel weatherModel = WeatherModel();   
       var temp ;
       String condition ;
       var city ;
@@ -23,7 +24,7 @@ class _LocationScreenState extends State<LocationScreen> {
       temp = data['main']['temp'] ;
       temp = temp.floor()-273;
       var condetion = data['weather'][0]['id'];
-      condition = getWeatherIcon(condetion);
+      condition = weatherModel.getWeatherIcon(condetion);
       city = data['name'];
 
   }
@@ -84,7 +85,7 @@ class _LocationScreenState extends State<LocationScreen> {
               Padding(
                 padding: EdgeInsets.only(right: 15.0),
                 child: Text(
-                  getMessage(temp),
+                  weatherModel.getMessage(temp),
                   textAlign: TextAlign.right,
                   style: kMessageTextStyle,
                 ),
@@ -96,36 +97,3 @@ class _LocationScreenState extends State<LocationScreen> {
     );
   }
 }
-
-  String getWeatherIcon(int condition) {
-    if (condition < 300) {
-      return '🌩';
-    } else if (condition < 400) {
-      return '🌧';
-    } else if (condition < 600) {
-      return '☔️';
-    } else if (condition < 700) {
-      return '☃️';
-    } else if (condition < 800) {
-      return '🌫';
-    } else if (condition == 800) {
-      return '☀️';
-    } else if (condition <= 804) {
-      return '☁️';
-    } else {
-      return '🤷‍';
-    }
-  }
-
-  String getMessage(int temp) {
-    if (temp > 25) {
-      return 'It\'s 🍦 time';
-    } else if (temp > 20) {
-      return 'Time for shorts and 👕';
-    } else if (temp < 10) {
-      return 'You\'ll need 🧣 and 🧤';
-    } else {
-      return 'Bring a 🧥 just in case';
-    }
-  }
-
