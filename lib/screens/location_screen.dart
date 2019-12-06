@@ -9,7 +9,7 @@ class LocationScreen extends StatefulWidget {
 }
 
 class _LocationScreenState extends State<LocationScreen> {
-    WeatherModel weatherModel = WeatherModel();   
+    WeatherModel weatherModel = WeatherModel();
       var temp ;
       String condition ;
       var city ;
@@ -21,11 +21,15 @@ class _LocationScreenState extends State<LocationScreen> {
   }
 
   void updateUI(dynamic data ){
+    setState(() {
+
       temp = data['main']['temp'] ;
       temp = temp.floor()-273;
       var condetion = data['weather'][0]['id'];
       condition = weatherModel.getWeatherIcon(condetion);
       city = data['name'];
+
+    });
 
   }
   @override
