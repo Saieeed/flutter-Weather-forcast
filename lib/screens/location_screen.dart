@@ -10,7 +10,7 @@ class LocationScreen extends StatefulWidget {
 
 class _LocationScreenState extends State<LocationScreen> {
       var temp ;
-      var condetion ;
+      String condition ;
       var city ;
   @override
   void initState() {
@@ -22,12 +22,14 @@ class _LocationScreenState extends State<LocationScreen> {
   void updateUI(dynamic data ){
       temp = data['main']['temp'] ;
       temp = temp.floor()-273;
-      condetion = data['weather'][0]['id'];
+      var condetion = data['weather'][0]['id'];
+      condition = getWeatherIcon(condetion);
       city = data['name'];
 
   }
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -68,11 +70,12 @@ class _LocationScreenState extends State<LocationScreen> {
                 child: Row(
                   children: <Widget>[
                     Text(
-                      temp.toString(),
+                      temp.toString()+'°' ,
                       style: kTempTextStyle,
                     ),
                     Text(
-                      '☀️',
+                      condition
+                      ,
                       style: kConditionTextStyle,
                     ),
                   ],
@@ -81,7 +84,7 @@ class _LocationScreenState extends State<LocationScreen> {
               Padding(
                 padding: EdgeInsets.only(right: 15.0),
                 child: Text(
-                  "It's 🍦 time in $city",
+                  getMessage(temp),
                   textAlign: TextAlign.right,
                   style: kMessageTextStyle,
                 ),
@@ -93,3 +96,36 @@ class _LocationScreenState extends State<LocationScreen> {
     );
   }
 }
+
+  String getWeatherIcon(int condition) {
+    if (condition < 300) {
+      return '🌩';
+    } else if (condition < 400) {
+      return '🌧';
+    } else if (condition < 600) {
+      return '☔️';
+    } else if (condition < 700) {
+      return '☃️';
+    } else if (condition < 800) {
+      return '🌫';
+    } else if (condition == 800) {
+      return '☀️';
+    } else if (condition <= 804) {
+      return '☁️';
+    } else {
+      return '🤷‍';
+    }
+  }
+
+  String getMessage(int temp) {
+    if (temp > 25) {
+      return 'It\'s 🍦 time';
+    } else if (temp > 20) {
+      return 'Time for shorts and 👕';
+    } else if (temp < 10) {
+      return 'You\'ll need 🧣 and 🧤';
+    } else {
+      return 'Bring a 🧥 just in case';
+    }
+  }
+
