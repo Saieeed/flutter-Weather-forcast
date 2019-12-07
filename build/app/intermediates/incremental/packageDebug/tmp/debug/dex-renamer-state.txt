@@ -1,4 +1,4 @@
-#Fri Dec 06 18:33:59 EET 2019
+#Sat Dec 07 09:14:10 EET 2019
 base.0=C\:\\Users\\saiee\\Desktop\\Clima-Flutter-master\\build\\app\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex

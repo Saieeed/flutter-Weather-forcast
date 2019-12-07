@@ -22,7 +22,13 @@ class _LocationScreenState extends State<LocationScreen> {
 
   void updateUI(dynamic data ){
     setState(() {
-
+      
+      if(data ==null){
+      temp = 0 ;
+      condition = '404' ;
+      city = 'Error locating ';
+      return ;
+      }
       temp = data['main']['temp'] ;
       temp = temp.floor()-273;
       var condetion = data['weather'][0]['id'];
@@ -55,26 +61,30 @@ class _LocationScreenState extends State<LocationScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   FlatButton(
-                    onPressed: () {},
+                    onPressed: () async{
+                      var weatherData = await  weatherModel.getLocationData();
+                      updateUI(weatherData);
+                    },
                     child: Icon(
                       Icons.near_me,
-                      size: 50.0,
+                      size: 20.0,
                     ),
                   ),
                   FlatButton(
                     onPressed: () {},
                     child: Icon(
                       Icons.location_city,
-                      size: 50.0,
+                      size: 20.0,
                     ),
                   ),
                 ],
               ),
               Padding(
                 padding: EdgeInsets.only(left: 15.0),
-                child: Row(
+                child: Row( mainAxisAlignment:   MainAxisAlignment.center,
                   children: <Widget>[
-                    Text(
+
+                  Text(
                       temp.toString()+'°' ,
                       style: kTempTextStyle,
                     ),
@@ -89,7 +99,7 @@ class _LocationScreenState extends State<LocationScreen> {
               Padding(
                 padding: EdgeInsets.only(right: 15.0),
                 child: Text(
-                  weatherModel.getMessage(temp),
+                  weatherModel.getMessage(temp) +'  in '+city,
                   textAlign: TextAlign.right,
                   style: kMessageTextStyle,
                 ),
