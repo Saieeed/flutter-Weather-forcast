@@ -20,7 +20,8 @@ class _LoadingScreenState extends State<LoadingScreen> {
       weatherData= await weather.getLocationData();
       
       if(weatherData == null ){
-        Navigator.push(context,  MaterialPageRoute(builder: (context){
+        
+      Navigator.push(context,  MaterialPageRoute(builder: (context){
       return Scaffold(
         body: Center(
        child: Text(

@@ -60,6 +60,12 @@ uses-permission#android.permission.ACCESS_COARSE_LOCATION
 ADDED from C:\Users\saiee\Desktop\Clima-Flutter-master\android\app\src\main\AndroidManifest.xml:4:5-81
 	android:name
 		ADDED from C:\Users\saiee\Desktop\Clima-Flutter-master\android\app\src\main\AndroidManifest.xml:4:22-78
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\saiee\Desktop\Clima-Flutter-master\android\app\src\main\AndroidManifest.xml:5:5-67
+MERGED from C:\Users\saiee\Desktop\Clima-Flutter-master\android\app\src\main\AndroidManifest.xml:5:5-67
+MERGED from C:\Users\saiee\Desktop\Clima-Flutter-master\android\app\src\main\AndroidManifest.xml:5:5-67
+	android:name
+		ADDED from C:\Users\saiee\Desktop\Clima-Flutter-master\android\app\src\main\AndroidManifest.xml:5:22-64
 application
 ADDED from C:\Users\saiee\Desktop\Clima-Flutter-master\android\app\src\main\AndroidManifest.xml:12:5-35:19
 MERGED from [com.google.android.gms:play-services-location:16.0.0] C:\Users\saiee\.gradle\caches\transforms-1\files-1.1\jetified-play-services-location-16.0.0.aar\692d000132c5a64fe256a55ba8b4d7b6\AndroidManifest.xml:7:5-20
@@ -194,10 +200,6 @@ INJECTED from C:\Users\saiee\Desktop\Clima-Flutter-master\android\app\src\debug\
 	android:minSdkVersion
 		INJECTED from C:\Users\saiee\Desktop\Clima-Flutter-master\android\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\saiee\Desktop\Clima-Flutter-master\android\app\src\debug\AndroidManifest.xml
-uses-permission#android.permission.INTERNET
-ADDED from C:\Users\saiee\Desktop\Clima-Flutter-master\android\app\src\debug\AndroidManifest.xml:6:5-66
-	android:name
-		ADDED from C:\Users\saiee\Desktop\Clima-Flutter-master\android\app\src\debug\AndroidManifest.xml:6:22-64
 uses-permission#android.permission.ACCESS_FINE_LOCATION
 ADDED from [:geolocator] C:\Users\saiee\Desktop\Clima-Flutter-master\build\geolocator\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-79
 	android:name

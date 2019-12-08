@@ -3,7 +3,7 @@ import 'dart:convert';
 
 class NetworkHelper {
 
-NetworkHelper( this.url);
+NetworkHelper(this.url);
 String url  ;
 
     Future getData()async{
