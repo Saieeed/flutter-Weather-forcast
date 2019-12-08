@@ -7,14 +7,18 @@ NetworkHelper(this.url);
 String url  ;
 
     Future getData()async{
+      try{
     http.Response response = await http.get(url);
     if(response.statusCode ==200){
-
       String data = response.body ;
       return jsonDecode(data);
     }else {
       return (response.statusCode);
     }
+      }
+      catch(e){
+        return e;
+      }
 }
 }
 
